@@ -1,0 +1,199 @@
+body{
+    background-color: #535c68;
+}
+
+/* Variáveis */
+$font-stack: 'Roboto', sans-serif;
+$primary-color: #fff;
+$background-color: #535c68;
+$hero-bg: url('../images/hero.jpg');
+$curiosity-bg: #333;
+$faq-bg: #222;
+$hover-color: #f39c12;
+
+/* Resetando estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+    font-family: $font-stack;
+    line-height: 1.6;
+    color: $primary-color;
+    background-color: $background-color;
+}
+
+//* Hero Section */
+.hero {
+    background-image: url('../images/hero.jpg'); // Caminho direto para a imagem de fundo
+    background-size: cover; // Faz a imagem cobrir toda a área da seção
+    background-position: center; // Centraliza a imagem
+    height: 100vh; // Altura da seção igual à altura da tela
+    display: flex; // Usa flexbox para centralizar o conteúdo
+    justify-content: center; // Centraliza horizontalmente
+    align-items: center; // Centraliza verticalmente
+    text-align: center; // Centraliza o texto dentro da seção
+    color: white; // Cor do texto
+    position: relative; // Garante que o conteúdo com z-index funcione corretamente
+}
+
+/* Estilizando o conteúdo dentro da hero */
+.hero__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; // Garante que o conteúdo fique na frente da imagem
+    z-index: 2; // Coloca o conteúdo na frente da imagem de fundo
+    background-color: rgba(0, 0, 0, 0.5); // Adiciona um fundo semitransparente para o conteúdo, melhorando a legibilidade
+    padding: 20px;
+    border-radius: 8px; // Bordas arredondadas no conteúdo
+}
+
+/* Estilos para o título */
+.hero__title {
+    font-size: 4rem; // Tamanho do título
+    margin-bottom: 20px; // Espaçamento abaixo do título
+}
+
+/* Estilos para o subtítulo */
+.hero__subtitle {
+    font-size: 1.5rem; // Tamanho do subtítulo
+}
+
+
+/* Seção de Curiosidades */
+.curiosities {
+    display: grid; /* Usando Grid para a estrutura */
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas por padrão (para desktop) */
+    gap: 5px; /* Espaço entre os itens */
+    background-color: $curiosity-bg;
+    justify-items: center; /* Centraliza os itens horizontalmente */
+    align-items: center; /* Centraliza os itens verticalmente */
+    padding: 20px;
+
+    /* Centralizando a grid em si */
+    margin: 0 auto; /* Garante que a grid inteira fique centralizada dentro do contêiner */
+
+    &__item {
+        text-align: center; /* Centraliza o texto dentro do item */
+        width: 100%; /* A largura do item ocupa 100% da célula do grid */
+        max-width: 380px; /* Limita a largura máxima do item */
+        margin-bottom: 18px;
+    }
+
+    &__image {
+        max-width: 380px; /* Largura máxima da imagem */
+        width: 100%; /* A imagem vai ocupar 100% da largura do item */
+        height: 220px; /* Definir uma altura fixa */
+        border-radius: 8px;
+        margin-bottom: 15px; /* Espaço abaixo da imagem */
+    }
+
+    &__description {
+        font-size: 1.1rem; /* Tamanho da fonte */
+    }
+}
+/* FAQ Section */
+.faq {
+    background-color: $faq-bg;
+    padding: 40px 10%;
+    text-align: center;
+
+    &__title {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+    }
+
+    &__item {
+        background-color: $background-color;
+        margin: 0 auto;
+        width: 700px;
+        margin-bottom: 20px;
+        cursor: pointer;
+        padding: 5px;
+        border: 1px solid transparent;
+        border-radius: 16px;
+
+        &__question {
+            font-size: 1.5rem;
+            transition: color 0.3s;
+
+            &:hover {
+                color: $hover-color;
+            }
+        }
+
+        &__answer {
+            display: none;
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: #ddd;
+        }
+    }   @media (max-width: 600px) {
+        padding: 20px 5%; /* Menor padding em dispositivos móveis */
+        
+        &__item {
+            width: 100%; /* Ajusta a largura dos itens para ocupar 100% da tela */
+            padding: 10px; /* Aumenta o padding para facilitar a leitura em telas pequenas */
+            margin: 16px auto;
+            
+        }
+
+        &__title {
+            font-size: 2rem; /* Reduz o tamanho da fonte do título para telas pequenas */
+            margin-bottom: 20px; /* Ajusta o espaço entre o título e os itens */
+        }
+
+        &__question {
+            font-size: 1.2rem; /* Reduz o tamanho da fonte das perguntas em telas pequenas */
+        }
+
+        &__answer {
+            font-size: 1rem; /* Ajusta o tamanho da fonte das respostas */
+        }
+    }  @media (max-width: 1024px) {
+        padding: 20px 5%; /* Menor padding em tablets */
+        
+        /* Garantir que a grid esteja centralizada */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        &__item {
+            width: 90%; /* Largura dos itens ajustada para 90% da tela */
+            max-width: 700px; /* Limite máximo de largura dos itens */
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        &__title {
+            font-size: 2.2rem; /* Tamanho de fonte ajustado */
+            margin-bottom: 20px; /* Ajusta o espaço entre o título e os itens */
+        }
+
+        &__question {
+            font-size: 1.3rem; /* Font-size ajustado para a tela do tablet */
+        }
+
+        &__answer {
+            font-size: 1.1rem; /* Ajusta a fonte da resposta */
+        }
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .curiosities {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas para tablets */
+    }
+}
+
+/* Responsividade - Smartphone */
+@media (max-width: 600px) {
+    .curiosities {
+        grid-template-columns: 1fr; /* 1 coluna para smartphones */
+    }
+}
